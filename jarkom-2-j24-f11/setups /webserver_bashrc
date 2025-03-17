@@ -1,0 +1,5 @@
+apt install nginx php php-fpm -y
+mkdir /var/www/sayur_webserver_nginx
+
+
+  ///untuk nomor 9 ke atas

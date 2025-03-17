@@ -1,0 +1,27 @@
+zone "buncis.F11.com" {
+    type slave;
+    masters { 10.72.1.4; };
+    file "/var/lib/bind/buncis.F11.com";
+};
+
+zone "bayam.F11.com" {
+    type slave;
+    masters { 10.72.1.4; };
+    file "/var/lib/bind/bayam.F11.com";
+};
+
+zone "brokoli.F11.com" {
+    type slave;
+    masters { 10.72.1.4; }; 
+    file "/var/lib/bind/brokoli.F11.com";
+};
+
+zone "vitamin.brokoli.F11.com" {
+    type master;
+    file "/etc/bind/Vitamin/vitamin.brokoli.F11.com";
+};
+
+zone "k1.vitamin.brokoli.F11.com" {
+    type master;
+    file "/etc/bind/Vitamin/k1/k1.vitamin.brokoli.F11.com";
+};
