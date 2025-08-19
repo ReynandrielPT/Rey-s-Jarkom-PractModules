@@ -700,8 +700,7 @@ echo "nameserver 10.72.1.3" >> /etc/resolv.conf
   - Hubungkan node dengan internet (ubah nameserver).
   - Download dan install apache pada brokoli.
   - Download pula file server dan unzip pada `/var/www/`.
-  - Buat konfigurasi server pada `/etc/apache2/sites-available/` pada node Brokoli dengan mengcopy `/etc/apache2/sites-available/000-default`.
-  - conf menjadi `/etc/apache2/sites-available/vitamin.brokoli.F11.com.conf`.
+  - Buat konfigurasi server pada `/etc/apache2/sites-available/` pada node Brokoli dengan mengcopy `/etc/apache2/sites-available/000-default.conf` menjadi `/etc/apache2/sites-available/vitamin.brokoli.F11.com.conf`.
   - Lalu ubah codenya dengan menambahkan:
 
   ```
@@ -709,7 +708,8 @@ echo "nameserver 10.72.1.3" >> /etc/resolv.conf
   ServerAlias www.vitamin.brokoli.F11.com
   DocumentRoot /var/www/vitamin.brokoli.F11
   ```
-  - Tepat dibawah `ServerAdmin`. Matikan nginx dengan `service nginx stop` dan nyalakan apache dengan `service apache2 start`.
+  Tepat dibawah `ServerAdmin`.
+  - Matikan nginx dengan `service nginx stop` dan nyalakan apache dengan `service apache2 start`.
   - Aktifkan server dengan `a2ensite vitamin.brokoli.F11.com.conf` lalu reload apache dengan `service apache2 reload`.
   - Testing dengan lynx pada TomatClient.
 
