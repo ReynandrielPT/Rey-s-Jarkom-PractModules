@@ -126,11 +126,11 @@
 
   #### Wireshark:
 
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/2a-wireshark.png)
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/2a-wireshark.png)
 
   #### Terminal:
 
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/2-terminal.png)
+  ![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/2-terminal.png)
 
 <br>
 <br>
@@ -163,11 +163,11 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
   #### Wireshark:
 
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/2b-wireshark.png)
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/2b-wireshark.png)
 
   #### Terminal:
 
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/2-terminal.png)
+  ![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/2-terminal.png)
 
 <br>
 <br>
@@ -196,11 +196,10 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
   #### Wireshark:
 
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/2c-wireshark.png)
-
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/2c-wireshark.png)
   #### Terminal:
 
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/2-terminal.png)
+  ![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/2-terminal.png)
 
 <br>
 <br>
