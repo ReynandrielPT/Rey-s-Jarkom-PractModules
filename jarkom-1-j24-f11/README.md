@@ -326,7 +326,7 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 - Output result
 
 #### Wireshark
- ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3d-wireshark.png)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3c-wireshark.png)
 
 
 #### Terminal
