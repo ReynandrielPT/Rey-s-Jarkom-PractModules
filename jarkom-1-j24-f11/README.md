@@ -58,10 +58,10 @@
 
 - Output result
   #### Wireshark:
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/1ab-wireshark.png)
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/1ab-wireshark.png)
 
   #### Terminal:
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/1ab-terminal.png)
+  ![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/1ab-terminal.png)
 
   <br>
   <br>
@@ -90,11 +90,11 @@
 
   #### Wireshark:
 
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/1ab-wireshark.png)
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/1ab-wireshark.png)
 
   #### Terminal:
 
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/1ab-terminal.png)
+  ![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/1ab-terminal.png)
 
 ## Task 2
 
