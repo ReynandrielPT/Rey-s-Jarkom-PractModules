@@ -228,12 +228,12 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Output result
 #### Wireshark
-![image](https://github.com/user-attachments/assets/7ecc23f8-3512-4cb9-a995-f97f6bad9c27)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3a-wireshark.png)
 
 
 
 #### Terminal
-![image](https://github.com/user-attachments/assets/172e3e32-b75f-40c5-a073-016466a3b001)
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3-terminal.png)
 
 <br>
 <br>
@@ -260,11 +260,11 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Output result
 #### Wireshark
-![image](https://github.com/user-attachments/assets/281f38e7-c981-402c-9b9e-d4c27dcaec35)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3b-wireshark.png)
 
 
 #### Terminal
-![image](https://github.com/user-attachments/assets/172e3e32-b75f-40c5-a073-016466a3b001)
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3-terminal.png)
 
 
 <br>
@@ -293,11 +293,11 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Output result
 #### Wireshark
-![image](https://github.com/user-attachments/assets/76179346-54ef-44a6-8567-c33303d8e45d)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3c-wireshark.png)
 
 
 #### Terminal
-![image](https://github.com/user-attachments/assets/172e3e32-b75f-40c5-a073-016466a3b001)
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3-terminal.png)
 
 
 <br>
@@ -311,7 +311,7 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Flag
 
-  Answer c: `file.pdf, hello.html,lion.jpg,present.pptx`
+  Answer d: `file.pdf, hello.html,lion.jpg,present.pptx`
   
   `JARKOM24{Y0u_4r3_4_g00d_4nalyz3r_3R1R0L1tssdcnu0lxaz11vohmlrfilx}`
 
@@ -326,11 +326,11 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 - Output result
 
 #### Wireshark
-![image](https://github.com/user-attachments/assets/76179346-54ef-44a6-8567-c33303d8e45d)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3d-wireshark.png)
 
 
 #### Terminal
-![image](https://github.com/user-attachments/assets/172e3e32-b75f-40c5-a073-016466a3b001)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/3-terminal.png)
 
 <br>
 <br>
@@ -359,11 +359,11 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Output result
 #### Wireshark
-![image](https://github.com/user-attachments/assets/d106891c-7da0-466e-bb2e-5b8962b9b0d7)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/4-wireshark.png)
 
 
 #### Terminal
-   ![image](https://github.com/user-attachments/assets/7a60d8d5-8fe5-46b2-920f-b497b19886d3)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/4-terminal.png)
 
 
 <br>
@@ -396,11 +396,10 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 - Output result
 
 #### Wireshark
-![image](https://github.com/user-attachments/assets/7948b0c3-78b7-4cb6-a6c7-d75e3f71797a)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/5-wireshark.png)
 
 #### Terminal
-  ![image](https://github.com/user-attachments/assets/fb2dd262-18d7-448d-9530-abcf6be15389)
-
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/5-terminal.png)
 <br>
 <br>
 
@@ -431,10 +430,11 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 - Output result
 
 #### Wireshark
-![image](https://github.com/user-attachments/assets/877a30fa-dabe-4dec-90aa-29bc76c008b7)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/6-wireshark.png)
+
 
 #### Terminal
-  ![image](https://github.com/user-attachments/assets/b4c6600f-3460-4294-9cfc-ec44674cf215)
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/6-terminal.png)
 
 <br>
 <br>
@@ -474,11 +474,12 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
   #### Wireshark:
 
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/7-wireshark.png)
+   ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/7-wireshark.png)
 
   #### Terminal:
 
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/7-terminal.png)
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/7-terminal.png)
+
 
 <br>
 <br>
@@ -506,9 +507,10 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Output result
 #### Wireshark
-![image](https://github.com/user-attachments/assets/c78e56de-08fb-4523-8f8b-ceb2c16d6a3c)
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/8-wireshark.png)
+
 #### Terminal
-![image](https://github.com/user-attachments/assets/24083444-2435-4e60-ae29-c6241cd9fb25)
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/8-terminal.png)
 
  
 <br>
@@ -538,11 +540,12 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
   `Mencari flag yang melakukan three handshake pada protokol TCP (seperti no 7 dan 8). lakukan follow, pada TCP stream lakukan find './' karena untuk mengeksekusi sebuah file (menjalankan) menggunakan comman './' `
 
 - Output result
-  ![wireshark](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/9-wireshark.png)
+ #### Wireshark:
+ ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/9-wireshark.png)
 
   #### Terminal:
 
-  ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/9-terminal.png)
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/9-terminal.png)
 
 <br>
 <br>
@@ -570,7 +573,8 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 - Output result
 #### Wireshark
-![image](https://github.com/user-attachments/assets/31a626b2-cfdf-4a3a-b3ca-d06976a116d8)
+
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/10-wireshark.png)
 
 
 #### Base64
@@ -578,7 +582,7 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 
 #### Terminal
-![image](https://github.com/user-attachments/assets/fdd6f150-4445-4e3f-9709-79fa25689031)
+![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/10-terminal.png)
 
 
 <br>
