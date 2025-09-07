@@ -28,7 +28,7 @@
 
 - Output result
   #### Wireshark:
-  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/edit/main/screenshot/1a-wireshark.png)
+  ![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/1a-wireshark.png)
 
   #### Terminal:
   ![terminal](https://github.com/jarkom-its-j24/jarkom-1-j24-f11/blob/main/screenshot/1a-terminal.png)
