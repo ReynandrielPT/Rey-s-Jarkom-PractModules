@@ -457,6 +457,16 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
   `-`
 
+  Revised:
+  `tcp.segment_data contains ff:fd`
+
+  telnet packets should consist IAC byte followed by command byte:
+  ```
+  ff:fd (IAC DO)
+  ff:fb (IAC WILL)
+  ff:fe (IAC DON'T)
+  ff:fc (IAC WON'T)
+  ```
 - Explanation
 
   `Karena telnet adalah protokol jaringan yang memungkinkan kita terhubung dan berinteraksi dengan komputer lain. saya sorting protokol tcp dan mencari flag yang melakukan three handshake dan melihat di port berapa mereka berkomunikasi`
