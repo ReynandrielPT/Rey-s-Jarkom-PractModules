@@ -578,8 +578,7 @@ SYN biasanya adalah paket yang digunakan untuk melalui proses kondeksi dalam pro
 
 
 #### Base64
-![image](https://github.com/user-attachments/assets/df3635f6-fca9-4e31-ab4a-8c05989d2a34)
-
+![wireshark](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/10-base64.png)
 
 #### Terminal
 ![terminal](https://github.com/ReynandrielPT/Rey-s-Jarkom-PractModules/blob/main/jarkom-1-j24-f11/screenshot/10-terminal.png)
