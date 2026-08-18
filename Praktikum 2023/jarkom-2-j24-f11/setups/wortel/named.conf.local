@@ -1,0 +1,28 @@
+zone "buncis.F11.com" {
+    type master;
+    notify yes;
+    also-notify { 10.72.1.3; }; 
+    allow-transfer { 10.72.1.3; }; 
+    file "/etc/bind/Jarkom/buncis.F11.com";
+};
+
+zone "bayam.F11.com" {
+    type master;
+    notify yes;
+    also-notify { 10.72.1.3; }; 
+    allow-transfer { 10.72.1.3; }; 
+    file "/etc/bind/Jarkom/bayam.F11.com";
+};
+
+zone "brokoli.F11.com" {
+    type master;
+    notify yes;
+    also-notify { 10.72.1.3; }; 
+    allow-transfer { 10.72.1.3; }; 
+    file "/etc/bind/Jarkom/brokoli.F11.com";
+};
+
+zone "2.72.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/Jarkom/2.72.10.in-addr.arpa";
+};

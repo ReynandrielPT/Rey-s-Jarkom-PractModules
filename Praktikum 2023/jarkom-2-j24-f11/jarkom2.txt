@@ -1,0 +1,1096 @@
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.72.0/16
+
+nano /root/.bashrc
+
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+
+
+//Soal 2 (lakukan pada WortelDNSMaster)
+
+//Masukan di .bashrc (sebaiknya di semua node)
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+apt-get install dnsutils -y
+
+mkdir /etc/bind/Jarkom
+
+nano /etc/bind/Jarkom
+
+cp /etc/bind/db.local /etc/bind/Jarkom/buncis.F11.com
+nano /etc/bind/Jarkom/buncis.F11.com
+
+cp /etc/bind/Jarkom/buncis.F11.com /etc/bind/Jarkom/brokoli.F11.com
+
+cp /etc/bind/Jarkom/buncis.F11.com /etc/bind/Jarkom/bayam.F11.com
+
+
+isi buncis.F11.com
+
+isi brokoli.F11.com
+
+isi bayam.F11.com
+
+//isi Soal 2 untuk named.conf.local
+zone "buncis.F11.com" {
+	type master;
+	file "/etc/bind/Jarkom/buncis.F11.com";
+};
+
+zone "bayam.F11.com" {
+	type master;
+	file "/etc/bind/Jarkom/bayam.F11.com";
+};
+
+zone "brokoli.F11.com" {
+	type master;
+	file "/etc/bind/Jarkom/brokoli.F11.com";
+};
+///
+
+isi /etc/bind/Jarkom/buncis.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     buncis.F11.com. root.buncis.F11.com. (
+                        2024100111               ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      buncis.F11.com.
+@       IN      A       10.72.2.3
+
+///
+
+
+isi /etc/bind/Jarkom/bayam.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     bayam.F11.com. root.bayam.F11.com. (
+                        2024100111               ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      bayam.F11.com.
+@       IN      A       10.72.2.5
+
+///
+
+
+
+isi /etc/bind/Jarkom/brokoli.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA    brokoli.F11.com. root.brokoli.F11.com. (
+                        2024100111               ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      brokoli.F11.com.
+@       IN      A       10.72.2.4
+
+///
+
+
+cp /etc/bind/named.conf.local /root/named.conf.local
+cp /etc/bind/Jarkom/bayam.F11.com /root/bayam.F11.com
+cp /etc/bind/Jarkom/buncis.F11.com /root/buncis.F11.com
+cp /etc/bind/Jarkom/brokoli.F11.com /root/brokoli.F11.com
+
+//setup.sh Wortel
+mkdir -p /etc/bind/Jarkom
+
+cp /root/brokoli.F11.com /etc/bind/Jarkom/brokoli.F11.com
+
+cp /root/buncis.F11.com /etc/bind/Jarkom/buncis.F11.com
+
+cp /root/bayam.F11.com /etc/bind/Jarkom/bayam.F11.com
+
+cp /root/named.conf.local /etc/bind/named.conf.local
+
+service bind9 restart
+
+//setup.sh child
+
+echo "nameserver 10.72.1.4" > /etc/resolv.conf
+
+//tambahan Bashrc
+chmod +x /root/setup.sh
+./root/setup.sh
+
+//Soal 3 (lakukan pada WortelDNSMaster)
+isi /etc/bind/Jarkom/bayam.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     bayam.F11.com. root.bayam.F11.com. (
+                        2024100111               ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      bayam.F11.com.
+@       IN      A       10.72.2.5
+www	IN	CNAME	bayam.F11.com.
+///
+
+
+
+isi /etc/bind/Jarkom/brokoli.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA    brokoli.F11.com. root.brokoli.F11.com. (
+                        2024100111              ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      brokoli.F11.com.
+@       IN      A       10.72.2.4
+www	IN	CNAME	brokoli.F11.com.
+///
+
+service bind9 restart
+
+
+//Soal 4 (lakukan pada WortelDNSMaster)
+
+cp /etc/bind/Jarkom/buncis.F11.com /etc/bind/Jarkom/2.72.10.in-addr.arpa
+
+
+isi /etc/bind/Jarkom/2.72.10.in-addr.arpa
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     buncis.F11.com. root.buncis.F11.com. (
+                        2024100111      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+2.72.10.in-addr.arpa.      IN      NS      buncis.F11.com.
+2.72.10.in-addr.arpa.      IN      NS      brokoli.F11.com.
+3       IN      PTR       buncis.F11.com.
+4       IN      PTR       brokoli.F11.com.
+
+///
+
+isi named.conf.local ditambah dengan
+///
+zone "2.72.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/Jarkom/2.72.10.in-addr.arpa";
+};
+///
+
+tambahkan setup.sh
+///
+cp /root/2.72.10.in-addr.arpa /etc/bind/Jarkom/2.72.10.in-addr.arpa
+///
+
+service bind9 restart
+
+
+///Soal 5 (lakukan pada WortelDNSMaster)
+
+isi /etc/bind/Jarkom/bayam.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    43200
+@       IN      SOA     bayam.F11.com. root.bayam.F11.com. (
+                        2024100111      ; Serial
+                           7200         ; Refresh
+                           1800         ; Retry
+                        1209600         ; Expire
+                         43200 )        ; Negative Cache TTL
+;
+@       IN      NS      bayam.F11.com.
+@       IN      A       10.72.2.5
+www	IN	CNAME	bayam.F11.com.
+///
+
+///Soal 6
+
+isi /etc/bind/named.conf.local pada WortelDNSServer
+///
+zone "buncis.F11.com" {
+    type master;
+    notify yes;
+    also-notify { 10.72.1.3; }; 
+    allow-transfer { 10.72.1.3; }; 
+    file "/etc/bind/Jarkom/buncis.F11.com";
+};
+
+zone "bayam.F11.com" {
+    type master;
+    notify yes;
+    also-notify { 10.72.1.3; }; 
+    allow-transfer { 10.72.1.3; }; 
+    file "/etc/bind/Jarkom/bayam.F11.com";
+};
+
+zone "brokoli.F11.com" {
+    type master;
+    notify yes;
+    also-notify { 10.72.1.3; }; 
+    allow-transfer { 10.72.1.3; }; 
+    file "/etc/bind/Jarkom/brokoli.F11.com";
+};
+
+zone "2.72.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/Jarkom/2.72.10.in-addr.arpa";
+};
+///
+
+isi pada /root/.bashrc pada PokcoyDNSSlave
+///
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+apt-get install dnsutils -y
+chmod +x /root/setup.sh
+./root/setup.sh
+///
+restart node
+
+isi /etc/bind/named.conf.local pada PokcoyDNSSlave
+///
+zone "buncis.F11.com" {
+    type slave;
+    masters { 10.72.1.4; };
+    file "/var/lib/bind/buncis.F11.com";
+};
+
+zone "bayam.F11.com" {
+    type slave;
+    masters { 10.72.1.4; };
+    file "/var/lib/bind/bayam.F11.com";
+};
+
+zone "brokoli.F11.com" {
+    type slave;
+    masters { 10.72.1.4; }; 
+    file "/var/lib/bind/brokoli.F11.com";
+};
+
+
+///
+
+cp /etc/bind/named.conf.local /root/named.conf.local
+
+nano /root/setup.sh Pokcoy
+
+isi setup.sh
+
+echo "nameserver 10.72.1.4" > /etc/resolv.conf
+
+cp /root/named.conf.local /etc/bind/named.conf.local
+
+service bind9 restart
+
+Tambahkan nameserver pada file setup.sh di BuncisWebServer, BrokoliWebServer, dan BayamWebServer
+IP yang mengarah ke PokcoyDNSSlave
+
+echo "nameserver 10.72.1.4" > /etc/resolv.conf
+echo "nameserver 10.72.1.3" >> /etc/resolv.conf
+
+
+///Soal 7 (lakukan di WortelDNSMaster
+
+
+
+tambahkan pada brokoli.F11.com
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA    brokoli.F11.com. root.brokoli.F11.com. (
+                        2024100111              ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      brokoli.F11.com.
+@       IN      A       10.72.2.4
+www	IN	CNAME	brokoli.F11.com.
+ns1	IN	A 	10.72.1.3
+vitamin IN 	NS	ns1
+///
+
+nano /etc/bind/named.conf.options
+
+Kemudian comment dnssec-validation auto; dan tambahkan baris berikut pada /etc/bind/named.conf.options
+
+allow-query{any;};
+
+cp /etc/bind/named.conf.options /root/named.conf.options
+
+Tambahkan pada /etc/bind/named.conf.local pada WortelDNSSlave
+zone "brokoli.F11.com" {
+    type master;
+    file "/etc/bind/Jarkom/Vitamin/vitamin.brokoli.F11.com";
+    allow-transfer { 10.72.1.3; };
+};
+Tambahkan pada setup.sh WortelDNSMaster
+cp /root/named.conf.options /etc/bind/named.conf.options 
+
+mkdir /etc/bind/Vitamin pada PokcoyDNSSlave
+
+cp /etc/bind/db.local /etc/bind/Vitamin/vitamin.brokoli.F11.com
+
+ubah isinya menjadi
+///
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA    vitamin.brokoli.F11.com. root.vitamin.brokoli.F11.com. (
+                        2024100111              ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      vitamin.brokoli.F11.com.
+@       IN      A       10.72.2.4
+www	IN	CNAME	vitamin.brokoli.F11.com.
+///
+
+Tambahkan pada /etc/bind/named.conf.local pada PokcoyDNSSlave
+zone "vitamin.brokoli.F11.com" {
+    type master;
+    file "/etc/bind/Vitamin/vitamin.brokoli.F11.com";
+};
+ 
+cp /etc/bind/Vitamin/vitamin.brokoli.F11.com /root/vitamin.brokoli.F11.com
+
+nano /etc/bind/named.conf.options
+
+Kemudian comment dnssec-validation auto; dan tambahkan baris berikut pada /etc/bind/named.conf.options
+
+allow-query{any;};
+
+cp /etc/bind/named.conf.options /root/named.conf.options
+
+Tambahkan pada setup.sh PokcoyDNSSlave
+
+mkdir -p /etc/bind/Vitamin
+
+cp /root/vitamin.brokoli.F11.com /etc/bind/Vitamin/vitamin.brokoli.F11.com
+
+cp /root/named.conf.options /etc/bind/named.conf.options 
+
+//Soal 8
+Di PokcoyDNSSlave 
+
+mkdir -p /etc/bind/Vitamin/k1 (masukan juga pada setup.sh)
+
+cp /etc/bind/Vitamin/vitamin.brokoli.F11.com /etc/bind/Vitamin/k1/k1.vitamin.brokoli.F11.com
+
+ubah dalamnya
+
+nano /etc/bind/Vitamin/k1/k1.vitamin.brokoli.F11.com
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA    k1.vitamin.brokoli.F11.com. root.k1.vitamin.brokoli.F11.com. (
+                        2024100111              ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      k1.vitamin.brokoli.F11.com.
+@       IN      A       10.72.2.4
+www	IN	CNAME	k1.vitamin.brokoli.F11.com.
+
+nano /etc/bind/Vitamin/vitamin.brokoli.F11.com
+
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA    vitamin.brokoli.F11.com. root.vitamin.brokoli.F11.com. (
+                        2024100111              ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      vitamin.brokoli.F11.com.
+@       IN      A       10.72.2.4
+www	IN	CNAME	vitamin.brokoli.F11.com.
+k1	IN	A	10.72.2.4
+
+
+
+tambah pula pada named.conf.local
+
+zone "k1.vitamin.brokoli.F11.com" {
+    type master;
+    file "/etc/bind/Vitamin/k1/k1.vitamin.brokoli.F11.com";
+};
+
+///setup.sh
+
+cp /root/vitamin.brokoli.F11.com /etc/bind/Vitamin/k1/k1.vitamin.brokoli.F11.com
+ 
+///Soal 9
+nano /root/.bashrc (pada brokoli, bayam, dan buncis)
+
+apt install nginx php php-fpm -y
+wget -O '/var/www/sayur_webserver_nginx.zip' 'https://docs.google.com/uc?export=download&id=1tFDk7pKRQLd3BMUcyvfAfEL-drvIxdSl'
+apt-get install unzip
+unzip -o /var/www/sayur_webserver_nginx.zip -d /var/www
+rm /var/www/sayur_webserver_nginx.zip
+
+nano /etc/nginx/sites-available/brokoli
+///
+server {
+
+	listen 80;
+
+	root "/var/www/sayur_webserver_nginx";
+
+	index index.php index.html index.htm;
+	server_name brokoli.F11.com;
+
+	location / {
+			try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+	fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+	}
+
+location ~ /\.ht {
+			deny all;
+	}
+
+	error_log /var/log/nginx/error.log;
+	access_log /var/log/nginx/access.log;
+}
+///
+
+nano /etc/nginx/sites-available/bayam
+///
+server {
+
+	listen 80;
+
+	root "/var/www/sayur_webserver_nginx";
+
+	index index.php index.html index.htm;
+	server_name bayam.F11.com;
+
+	location / {
+			try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+	fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+	}
+
+location ~ /\.ht {
+			deny all;
+	}
+
+	error_log /var/log/nginx/error.log;
+	access_log /var/log/nginx/access.log;
+}
+///
+
+nano /etc/nginx/sites-available/buncis
+///
+server {
+
+	listen 80;
+
+	root "/var/www/sayur_webserver_nginx";
+
+	index index.php index.html index.htm;
+	server_name buncis.F11.com;
+
+	location / {
+			try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+	fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+	}
+
+location ~ /\.ht {
+			deny all;
+	}
+
+	error_log /var/log/nginx/error.log;
+	access_log /var/log/nginx/access.log;
+}
+///
+
+cp /etc/nginx/sites-available/brokoli /root/brokoli -> di brokoli
+
+cp /etc/nginx/sites-available/bayam /root/bayam -> di bayam
+
+cp /etc/nginx/sites-available/buncis /root/buncis -> di buncis
+
+ln -s /etc/nginx/sites-available/brokoli /etc/nginx/sites-enabled
+
+ln -s /etc/nginx/sites-available/bayam /etc/nginx/sites-enabled
+
+
+ln -s /etc/nginx/sites-available/buncis /etc/nginx/sites-enabled
+
+//setup.sh Workers
+cp /root/brokoli /etc/nginx/sites-available/brokoli  -> di brokoli
+ln -sf /etc/nginx/sites-available/brokoli /etc/nginx/sites-enabled
+
+cp /root/bayam /etc/nginx/sites-available/bayam  -> di bayam
+ln -sf /etc/nginx/sites-available/bayam /etc/nginx/sites-enabled
+
+cp /root/buncis /etc/nginx/sites-available/buncis  -> di buncis
+ln -sf /etc/nginx/sites-available/buncis /etc/nginx/sites-enabled
+
+--diikuti
+
+rm -rf /etc/nginx/sites-enabled/default
+
+service php7.2-fpm start
+
+service php7.2-fpm restart
+
+service nginx restart
+
+nginx -t
+
+
+// bashrc Tomat
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+apt-get install dnsutils -y
+apt-get install lynx -y
+chmod +x /root/setup.sh
+./root/setup.sh
+
+//setup.sh Tomat
+echo "nameserver 10.72.1.4" > /etc/resolv.conf
+
+//Soal 10
+cat /var/log/nginx/error.log pada workers
+
+ternyata hostname tidak ditemukan
+
+ganti pada index.php
+
+<?php
+$hostname = gethostname();
+$date = date('l, d F Y H:i:s');
+$php_version = phpversion();
+$visitor_ip = $_SERVER['REMOTE_ADDR'];
+
+echo "<h1>Selamat Datang di Situs Resep Sayuran!</h1>";
+echo "<p>Pengunjung dari IP: <strong>$visitor_ip</strong></p>";
+echo "<p>Versi PHP: <strong>$php_version</strong></p>";
+echo "<p>Waktu: <strong>$date</strong></p>";
+echo "<hr>";
+echo "<p>Saat ini Anda sedang mengakses resep dari sayur: <strong>$hostname</strong></p>";
+
+switch ($hostname) {
+    case 'BayamWebServer':
+        if (!@include 'resep1.php') {
+            echo "<p>Gagal Memuat Resep! Cek Error Log untuk info lebih lanjut.</p>";
+            error_log("File resep1.php tidak ditemukan!\n", 3, "/var/log/nginx/error.log");
+        }
+        break;
+    case 'BuncisWebServer':
+        if (!@include 'resep2.php') {
+            echo "<p>Gagal Memuat Resep! Cek Error Log untuk info lebih lanjut.</p>";
+            error_log("File resep2.php tidak ditemukan!\n", 3, "/var/log/nginx/error.log");
+        }
+        break;
+    case 'BrokoliWebServer':
+        if (!@include 'resep3.php') {
+            echo "<p>Gagal Memuat Resep! Cek Error Log untuk info lebih lanjut.</p>";
+            error_log("File resep3.php tidak ditemukan!\n", 3, "/var/log/nginx/error.log");
+        }
+        break;
+    default:
+        echo "<p>Gagal Memuat Resep! Cek Error Log untuk info lebih lanjut.</p>";
+        error_log("Hostname tidak ditemukan!\n", 3, "/var/log/nginx/error.log");
+        break;
+}
+?>
+
+pada setup.sh Workers tambahkan
+
+rm /var/www/sayur_webserver_nginx/index.php
+
+cp /root/index.php /var/www/sayur_webserver_nginx/index.php
+
+//Soal 11
+[01/Oct/2024:11:30:45 +0000] Jarkom Node Bayam Access from 192.168.1.15 using method "GET /resep/bayam HTTP/1.1" returned stat
+
+tambahkan pada /etc/nginx/sites-available/bayam
+
+log_format custom '[$time_local] Jarkom Node $hostname Access from $remote_addr using method "$request_method $uri $server_protocol" returned status $status with $body_bytes_sent bytes sent in $request_time seconds';
+
+(diluar server)
+
+dan pada acces.log tambahkan custom
+
+sehingga menjadi
+
+log_format custom '[$time_local] Jarkom Node $hostname Access from $remote_addr using method "$request_method $uri $server_protocol" returned status $status with $body_bytes_sent bytes sent in $request_time seconds';
+
+server {
+
+	listen 80;
+
+	root "/var/www/sayur_webserver_nginx";
+
+	index index.php index.html index.htm;
+	server_name bayam.F11.com;
+
+	location / {
+			try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+	fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+	}
+
+location ~ /\.ht {
+			deny all;
+	}
+
+	error_log /var/log/nginx/error.log;
+	access_log /var/log/nginx/access.log custom;
+}
+
+lakukan ke ketiga-tiganya
+
+
+service nginx restart
+
+service nginx -t
+
+connect dengan client
+
+cek di /var/log/nginx/acces.log
+
+//Soal 12
+
+apt-get install apache2
+
+apt-get install php
+
+apt-get install libapache2-mod-php7.0
+
+wget -O 'var/www/vitamin.brokoli.F11.zip' 'https://docs.google.com/uc?export=download&id=1NhsaTLD4Zk06BZJCqdN_oqoxB3uIg2C7'
+unzip -o /var/www/vitamin.brokoli.F11.zip -d /var/www
+
+
+
+cd /etc/apache2/sites-available
+
+cp 000-default.conf /etc/apache2/sites-available/vitamin.brokoli.F11.com.conf
+
+tambahkan pada file tersebut
+
+ServerName vitamin.brokoli.F11.com
+ServerAlias www.vitamin.brokoli.F11.com
+
+ubah pada DocumentRoot
+DocumentRoot /var/www/vitamin.brokoli.F11
+
+a2ensite vitamin.brokoli.F11.com
+
+service nginx stop
+
+service apache2 start
+
+Tambahkan pada bashrc
+wget -O '/var/www/vitamin.brokoli.F11.zip' 'https://docs.google.com/uc?export=download&id=1NhsaTLD4Zk06BZJCqdN_oqoxB3uIg2C7'
+unzip -o /var/www/vitamin.brokoli.F11.zip -d /var/www
+rm /var/www/vitamin.brokoli.F11.zip 
+mv /var/www/vitamin.brokoli.yyy.com /var/www/vitamin.brokoli.F11
+rm -rf /var/www/vitamin.brokoli.yyy.com
+
+Tambahkan pada setup.sh
+///
+cp /root/vitamin.brokoli.F11.com.conf /etc/apache2/sites-available/vitamin.brokoli.F11.com.conf
+
+a2ensite vitamin.brokoli.F11.com.conf
+
+service nginx stop
+
+service apache2 start
+///
+
+///Soal 13
+
+Tambahkan pada /etc/apache2/sites-available/vitamin.brokoli.F11.com.conf
+
+ <Directory /var/www/vitamin.brokoli.F11>
+     Options +FollowSymLinks -Multiviews
+     AllowOverride All
+ </Directory>
+
+pada setup.sh
+a2enmod rewrite
+
+.htaccess dalam var/www/vitamin.brokoli.F11/nutrisi
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+///Soal 14
+
+Tambahkan pada /etc/apache2/sites-available/vitamin.brokoli.F11.com.conf
+
+ <Directory /var/www/vitamin.brokoli.F11/public>
+     Options +Indexes
+ </Directory>
+	
+ Alias "/img" "/var/www/vitamin.brokoli.F11/public/images"
+
+
+///Soal 15
+
+Tambahkan pada /etc/apache2/sites-available/vitamin.brokoli.F11.com.conf
+
+ <Directory /var/www/vitamin.brokoli.F11/secret>
+     Order deny,allow
+     Deny from all
+ </Directory>
+	
+
+///Soal 16
+
+Tambahkan pada /etc/apache2/sites-available/vitamin.brokoli.F11.com.conf
+
+Alias "/js" "/var/www/vitamin.brokoli.F11/public/js"
+
+//Soal 17
+
+Tambahkan pada bashrc
+wget -O '/var/www/k1.vitamin.brokoli.F11.zip' 'https://docs.google.com/uc?export=download&id=1SRnelY4XrtmhJg_Ly1nUJo1Jf91SnmtB'
+unzip -o /var/www/k1.vitamin.brokoli.F11.zip -d /var/www
+rm /var/www/k1.vitamin.brokoli.F11.zip
+mv /var/www/k1.vitamin.brokoli.yyy.com /var/www/k1.vitamin.brokoli.F11
+rm -rf /var/www/k1.vitamin.brokoli.yyy.com
+
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/k1.vitamin.brokoli.F11.com.conf
+
+ubah isinya menjadi
+Virtual 9696
+Virtual 8888
+
+<VirtualHost *:9696>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        ServerName k1.vitamin.brokoli.F11.com
+        ServerAlias www.k1.vitamin.brokoli.F11.com
+        DocumentRoot /var/www/k1.vitamin.brokoli.F11
+
+        <Directory /var/www/k1.vitamin.brokoli.F11>
+            AuthType Basic
+            AuthName "Restricted"
+            AuthUserFile /etc/apache2/.htpasswd
+            Require valid-user
+        </Directory>
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+<VirtualHost *:8888>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        ServerName k1.vitamin.brokoli.F11.com
+        ServerAlias www.k1.vitamin.brokoli.F11.com
+        DocumentRoot /var/www/k1.vitamin.brokoli.F11
+
+
+        <Directory /var/www/k1.vitamin.brokoli.F11>
+           AuthType Basic
+           AuthName "Restricted"
+           AuthUserFile /etc/apache2/.htpasswd
+           Require valid-user
+        </Directory>
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+  <VirtualHost *:80>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+
+
+        ServerName k1.vitamin.brokoli.F11.com
+        ServerAlias www.k1.vitamin.brokoli.F11.com
+
+        <Location />
+                Require all denied
+        </Location>
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+(bisa aja VirtualHost *:9696 *:8888)
+
+ServerName k1.vitamin.brokoli.F11.com
+ServerAlias www.k1.vitamin.brokoli.F11.com
+DocumentRoot /var/www/k1.vitamin.brokoli.F11
+
+
+000-default.conf
+comment pada serveradmin dan documentroot
+tambahkan ServerName default 
+Redirect 403 /
+
+cp /etc/apache2/sites-available/000-default.conf /root/000-default.conf
+
+Tambahkan port 8888 dan 9696 pada file /etc/apache2/ports.conf
+
+Listen 8888
+Listen 9696
+
+cp /etc/apache2/ports.conf /root/ports.conf
+
+
+Tambahkan pada setup.sh
+cp /root/k1.vitamin.brokoli.F11.com.conf /etc/apache2/sites-available/k1.vitamin.brokoli.F11.com.conf
+
+a2ensite  k1.vitamin.brokoli.F11.com.conf
+
+cp /root/000-default.conf /etc/apache2/sites-available/000-default.conf 
+
+cp /root/ports.conf /etc/apache2/ports.conf 
+
+//Soal 18
+htpasswd -c -b /etc/apache2/.htpasswd Seblak sehatF11
+
+Tambahkan pada k1.vitamin.brokoli.F11.com.conf
+
+ <Directory /var/www/k1.vitamin.brokoli.F11>
+    	AuthType Basic
+	AuthName "Restricted"
+	AuthUserFile /etc/apache2/.htpasswd
+	Require valid-user 
+ </Directory>
+
+//Soal 19
+
+Sebetulnya soal ini bisa diselesaikan ketika soal 12 supaya nginx dan apache tidak bertabrakan, 
+tetapi disini saya buat untuk nomor 19. Untuk brokoli.F11.com dapat dijalankan maka nginx harus bisa berjalan bersamaan dengan apache2. 
+Diperlukan port yang berbeda supaya kedua webserver tidak bertabrakan. Disini saya memilih untuk mengganti port nginx (brokoli.F11.com) 
+yang awalnya pada 80 menjadi 8080. Kemudian diperlukan pula reverse proxy supaya saat lynx ke brokoli.F11.com dijalankan, 
+tidak perlu menambahkan port spesifik (mengarahkan port default atau 80 supaya ke port 8080). Sehingga dibuatlah brokoli.conf 
+pada apache2 dengan kode sebagai berikut:
+
+Ubah dalamnya menjadi:
+///
+ <VirtualHost *:80>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+
+
+        ServerName brokoli.F11.com
+        ServerAlias www.brokoli.F11.com
+
+        ProxyPass / http://127.0.0.1:8080/
+        ProxyPassReverse / http://127.0.0.1:8080/
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>		
+///
+
+///
+log_format custom '[$time_local] Jarkom Node $hostname Access from $remote_addr using method "$request_method $uri $server_protocol" returned status $status with $body_bytes_sent bytes sent in $request_time seconds';
+
+server {
+
+	listen 8080;
+
+	root "/var/www/sayur_webserver_nginx";
+
+	index index.php index.html index.htm;
+	server_name bayam.F11.com;
+
+	location / {
+			try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+	fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+	}
+
+location ~ /\.ht {
+			deny all;
+	}
+
+	error_log /var/log/nginx/error.log;
+	access_log /var/log/nginx/access.log custom;
+}
+///
+
+cp /etc/apache2/sites-available/brokoli.conf /root/brokoli2.conf
+
+masukan di setup.sh
+
+cp /root/brokoli2.conf /etc/apache2/sites-available/brokoli.conf
+
+a2enmod proxy
+a2enmod proxy_http
+
+a2dissite 000-default.conf
+
+a2ensite brokoli
+
+service nginx restart
+
+
+/// Soal 20
+  `Pertama untuk mempermudah, download tools untuk menampilkan gambar, disini saya menggunakan img2txt dari caca-utils. 
+Download dan install pada node TomatClient (pastikan nameserver di /etc/resolv.conf sudah tersambung dengan IP 192.168.122.1 atau internet). 
+Kemudian tambahkan konfigurasi rewrite pada vitamin.brokoli.F11.com.conf supaya ketika ada request yang mengandung kata "vitamin" 
+akan langsung diredirect (rewrite path) ke /vitamin.brokoli.F11/public/images/vitamin.png. Codenya adalah sebagai berikut:`
+
+  ```
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} .vitamin. [NC]
+  RewriteRule ^.*$ /public/images/vitamin.png [L]
+  ```
+`Setelah konfigurasi diubah, ubah kembali nameserver pada TomatClient supaya kembali terkoneksi dengan Wortel dan Pokcoy. 
+Kemudian nyalakan mod rewrite di Brokoli dengan a2enmod rewrite. Testing pada TomatClient.`
+
+
+
+
